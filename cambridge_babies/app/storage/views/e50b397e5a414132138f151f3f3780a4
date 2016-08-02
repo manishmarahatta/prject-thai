@@ -1,0 +1,106 @@
+<?php $__env->startSection("header"); ?>
+<header>
+	<div class="header">
+		<div class="top-nav-bar">
+			<div class="container">
+				<div class="left-top-nav">
+					<ul>
+						<li>
+							<p>Quick Contact: <span><?php echo $contactDtl->phone; ?></span></p>
+						</li>
+					</ul>
+				</div>
+				<div class="right-top-nav">
+					<ul class="pull-right">
+						<li>
+							<a href="<?php echo URL::route('faq'); ?>"><i class="fa fa-fw fa-question-circle"></i> FAQs</a>
+						</li>
+						<li>
+							<a href="<?php echo URL::route('gallery'); ?>"><i class="fa fa-fw fa-picture-o"></i> Gallery</a>
+						</li>
+						<li>
+							<a href="<?php echo URL::route('news'); ?>"><i class="fa fa-fw fa-globe"></i> News & Updates</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container header-main">
+			<div class="header-middle clearfix">
+				<div class="brand-identity">
+					<a href="<?php echo URL::route('home'); ?>"><img src="<?php echo URL::asset('assets/website/images/logo.png'); ?>" alt="Cozy Dream"></a>
+				</div>
+				<div class="header-right-content">
+					<ul class="pull-right">
+						<li class="dropdown">
+							<div class="online-book">
+								<a class="btn btn-success btn-lg" href="book-trip.php"><i class="fa fa-aw fa-desktop"></i>
+								Book Online </a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="sticky_navigation_wrapper" class="main-menu clearfix">
+			<div id="sticky_navigation" class="nav">
+				<div class="container">
+					<div class="logo-small">
+						<a href="index.php"><img src="<?php echo URL::asset('assets/website/images/logo.png'); ?>"></a>
+					</div>
+					<ul id="nav" class="nav-menu nav-list menuNav">
+						<li><a <?php if(Session::get('page')=='home'): ?>class="current-nav"<?php endif; ?> href="<?php echo URL::route('home'); ?>"><i class="fa fa-aw fa-home"></i></a></li>
+						
+						<?php if($pagesNav): ?>
+							<?php $sn = 1; ?>
+							<?php foreach($pagesNav as $row): ?>
+							<li class="dropdown">
+								<a <?php if(Session::get('page')==$row->title): ?>class="current-nav"<?php endif; ?> href="#" class="dropdown-toggle" data-toggle="dropdown"> <?php echo $row->title; ?> <i class="fa fa-caret-down"></i></a>
+								<ul class="dropdown-menu">
+									<?php $subSn = 1; ?>
+									<?php foreach($row->Subpages as $subRow): ?>
+									<li><a href="<?php echo URL::to('page/view/'.$subRow->id.'/'.$subRow->title); ?>"><?php echo $subRow->title; ?></a></li>
+										<?php if($sn==1 && $subSn==1): ?>
+										<li><a href="<?php echo URL::route('our-team'); ?>">Our Team</a></li>
+										<?php endif; ?>
+										<?php $subSn++; ?>
+									<?php endforeach; ?>
+								</ul>
+							</li>
+							<?php if($sn==2): ?>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Activities <i class="fa fa-caret-down"></i></a>
+								<ul class="dropdown-menu">
+									<?php if($activitiesNav): ?>
+										<?php foreach($activitiesNav as $row): ?>
+										<li><a href="<?php echo URL::to('activities/'.$row->id.'/'.strtolower(preg_replace('/-+/', '-', preg_replace('/[^\wáéíóú]/', '-',$row->title)))); ?>"><?php echo $row->title; ?></a></li>
+										<?php endforeach; ?>
+									<?php endif; ?>
+								</ul>
+							</li>
+							
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Trekking <i class="fa fa-caret-down"></i></a>
+								<ul class="dropdown-menu">
+								<?php if($trakkingNav): ?>
+									<?php foreach($trakkingNav as $row): ?>
+									<li><a href="<?php echo URL::to('trekking/'.$row->id.'/'.strtolower(preg_replace('/-+/', '-', preg_replace('/[^\wáéíóú]/', '-',$row->title)))); ?>"><?php echo $row->title; ?></a></li>
+									<?php endforeach; ?>
+								<?php endif; ?>
+								</ul>
+							</li>
+							<?php endif; ?>
+							<?php $sn++ ?>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					
+						<li><a <?php if(Session::get('page')=='blog'): ?>class="current-nav" <?php endif; ?> href="<?php echo URL::route('blog'); ?>">Blog</a></li>
+						<li><a href="<?php echo URL::route('contact'); ?>">Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<!-- END OF HEADER -->
+<?php $__env->stopSection(); ?>

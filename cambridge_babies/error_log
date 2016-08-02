@@ -1,0 +1,1 @@
+[14-Jan-2016 03:20:20 UTC] PHP Fatal error:  Class 'BaseController' not found in /home/itinbox/public_html/demo/cozy/app/controllers/HomeController.php on line 2

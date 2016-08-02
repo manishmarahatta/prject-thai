@@ -1,0 +1,45 @@
+<?php $__env->startSection('content'); ?>
+<div class="inner-page">
+    <div class="page-title">
+        <div class="container">
+            <h1>FAQ's
+            <div class="social-share pull-right">
+                <span class='st_facebook_hcount' displayText='Facebook'></span>
+                <span class='st_twitter_hcount' displayText='Tweet'></span>
+                <span class='st_googleplus_hcount' displayText='Google +'></span>
+            </div>
+            </h1>
+        </div>
+    </div>
+    <div class="inner-content">
+        <div class="container">
+            <div class="faq-wrap">
+                <div class="panel-group" id="faq-box">
+                    	<?php if($faq): ?>
+                    		<?php $sn = 1; ?>
+                    		<?php foreach($faq as $row): ?>
+		                    <div class="panel panel-material panel-rect">
+		                        <div class="panel-heading">
+		                            <h4 class="panel-title">
+		                            <a class="accordion-toggle <?php if($sn!=1): ?> collapsed <?php endif; ?>" data-toggle="collapse" data-parent="#faq-box" href="#collapse<?php echo $row->id; ?>"><?php echo $sn; ?>. 
+		                            	<?php echo $row->question; ?>
+
+		                            </a>
+		                            </h4>
+		                        </div>
+		                        <div id="collapse<?php echo $row->id; ?>" class="panel-collapse collapse <?php if($sn==1): ?> in <?php endif; ?>">
+		                            <div class="panel-body">
+		                                <?php echo $row->ans; ?>
+
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <?php $sn++ ?>
+		                    <?php endforeach; ?>
+		             <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.inner-page -->
+<?php $__env->stopSection(); ?>

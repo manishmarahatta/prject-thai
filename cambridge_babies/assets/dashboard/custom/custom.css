@@ -1,0 +1,16 @@
+/*.box{
+	min-height: 500px;
+}*/
+
+.dataTable{
+	font-size: 14px !important;
+}
+
+.articleEdit{
+	font-size: 15px;
+	padding: 5px;
+	margin: 0px 10px 0px 0px;
+}
+
+.btnLocation{     font-size: 12px; }
+.form-horizontal .control-label{ text-align: left; }

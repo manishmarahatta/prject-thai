@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+	<head>
+       	<title>Cozy Dream</title>
+		<?php echo $__env->make('website/include/head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</head>
+<body class="noJS" id="top">
+	<?php echo $__env->yieldContent('header'); ?>
+	
+	<div class="main-wrapper home-pattern">
+		<?php echo $__env->yieldContent('content'); ?>
+	</div>
+	<!-- END OF MAIN WRAPPER -->
+	<?php echo $__env->make('website/include/footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</body>
+</html>

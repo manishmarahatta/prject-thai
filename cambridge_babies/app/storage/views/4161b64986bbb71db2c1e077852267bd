@@ -1,0 +1,49 @@
+<?php $__env->startSection('content'); ?>
+<div class="inner-page">
+	<div class="page-title">
+		<div class="container">
+			<h1><?php echo $pageDetails->title; ?>
+
+				<div class="social-share pull-right">
+					<span class='st_facebook_hcount' displayText='Facebook'></span>
+					<span class='st_twitter_hcount' displayText='Tweet'></span>
+					<span class='st_googleplus_hcount' displayText='Google +'></span>
+				</div>
+			</h1>
+
+		</div>
+	</div>
+	<div class="inner-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9">
+					<div class="page-single">
+						<?php echo $pageDetails->description; ?>
+
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="sidebar-single">
+						<ul>
+							<?php $subSn = 1; ?>
+							<?php if($subPages): ?>
+								<?php foreach($subPages as $row): ?>
+									<li <?php if($pageId==$row->id): ?>class="active"<?php endif; ?>><a href="our-team.php"><i class="fa fa-angle-right"></i> <?php echo $row->title; ?></a></li>
+									<?php if($row->pageId==3): ?>
+										<?php if($subSn==1): ?>
+										<li><a href="<?php echo URL::route('our-team'); ?>"><i class="fa fa-angle-right"></i> Our Team</a></li>
+										<?php endif; ?>
+									<?php endif; ?>
+									<?php $subSn++; ?>
+								<?php endforeach; ?>
+							<?php endif; ?>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- /.inner-page -->
+<?php $__env->stopSection(); ?>

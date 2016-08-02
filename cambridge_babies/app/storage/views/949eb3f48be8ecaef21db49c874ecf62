@@ -1,0 +1,105 @@
+<?php $__env->startSection('content'); ?>
+<div class="inner-page">
+    <div class="page-title">
+        <div class="container">
+            <h1><?php echo $result->title; ?>
+
+            <div class="social-share pull-right">
+                <span class='st_facebook_hcount' displayText='Facebook'></span>
+                <span class='st_twitter_hcount' displayText='Tweet'></span>
+                <span class='st_googleplus_hcount' displayText='Google +'></span>
+            </div>
+            </h1>
+        </div>
+    </div>
+    <div class="inner-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-lg-9">
+                    <div class="trip-image">
+                        <ul class="trip-image-slider">
+                            <li><img src="images/trek-img-1.png" /></li>
+                            <li><img src="images/trek-img-2.png" /></li>
+                            <li><img src="images/trek-img-3.png" /></li>
+                        </ul>
+                        <div id="bx-pager">
+                            <a data-slide-index="0" href=""><img src="images/trek-thumb-1.png" /></a>
+                            <a data-slide-index="1" href=""><img src="images/trek-thumb-2.png" /></a>
+                            <a data-slide-index="2" href=""><img src="images/trek-thumb-3.png" /></a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <div class="sidebar-single trip-info">
+                        <h4>Trip Info</h4>
+                        <table class="table no-border table-condensed">
+                            <tr>
+                                <td><strong>Duration</strong></td>
+                                <td><?php echo $result->duration; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Activities</strong></td>
+                                <td>Trekking</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Destination</strong></td>
+                                <td><?php echo $result->destination; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Favourable Seasons</strong></td>
+                                <td><?php echo $result->favourable_seasons; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Start - End</strong></td>
+                                <td><?php echo $result->start_end; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cost</strong></td>
+                                <td class="text-warning"><strong class="text-price"><?php echo $result->cost; ?></strong> USD/Person</td>
+                            </tr>
+                        </table>
+                        <a href="#" class="btn btn-success btn-lg">Book Now</a>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="trip-overview">
+                        	<h4 class="text-warning">Trip Overview</h4>
+                       	<?php echo $result->overview; ?>
+
+                    </div>
+                    <div class="trip-tab">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#tab-1" aria-controls="tab-1" role="tab" data-toggle="tab">Itinerary Details</a></li>
+                            <li role="presentation"><a href="#tab-2" aria-controls="tab-2" role="tab" data-toggle="tab">Cost Include & Exclude</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="tab-1">
+                              <?php echo $result->itinerary; ?>
+
+                                
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="tab-2">
+                                <div class="cost-box">
+                                    <h4>Cost Include</h4>
+                                    <?php echo $result->cost_include; ?>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- /.inner-page -->
+<script>
+$('.trip-image-slider').bxSlider({
+pagerCustom: '#bx-pager'
+});
+</script>
+<?php $__env->stopSection(); ?>

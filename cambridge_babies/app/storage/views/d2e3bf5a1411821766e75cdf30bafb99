@@ -1,0 +1,96 @@
+<?php $__env->startSection('content'); ?>
+<div class="big-slider-wrap">
+	<?php if($slider): ?>
+		<ul class="big-slider">
+			<?php foreach($slider as $row): ?>
+				<li><img src="<?php echo URL::asset($row->image); ?>" alt=""></li>
+		   <?php endforeach; ?>
+		</ul>
+	<?php endif; ?>
+
+	<div class="trip-search">
+		<div class="container">
+			<form action="search-result.php">
+				<div class="trip-entry-header clearfix">
+					<h5>Trip Search</h5>
+				</div>
+				
+				<div class="trip-box">
+					<div class="row">
+						<div class="col-sm-2">
+							<select class="form-control">
+								<option>By Destination</option>
+								<option>Nepal</option>
+								<option>India</option>
+								<option>Tibet</option>
+								<option>Bhutan</option>
+							</select>
+						</div>
+						<div class="col-sm-2">
+							<select class="form-control">
+								<option>By Activity</option>
+								<option>Bird Watching</option>
+								<option>Pick Climbing</option>
+								<option>Trekking</option>
+								<option>Cultural Tour</option>
+								<option>Rafting</option>
+								<option>Safari</option>
+								<option>Kayaking</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<select class="form-control">
+								<option>By Duration</option>
+								<option>1-5 Days</option>
+								<option>6-10 Days</option>
+								<option>11-15 Days</option>
+								<option>16-25 Days</option>
+								<option>26-30 Days</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<input class="form-control" type="text" placeholder="By Keywords">
+						</div>
+						<div class="col-sm-2">
+							<button type="submit" class="btn btn-black"><i class="fa fa-aw fa-search"></i> Search</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- END OF TRIP SEARCH -->
+</div>
+<!-- END OF BIG SLIDER -->
+
+<div class="testimonial-wrapper">
+    <div class="container">
+        <div class="block-header">
+            <h3>Testimonials</h3>
+        </div>
+        	<ul class="testimonial-slider">
+	            <?php if($testimonials): ?>
+	            		<?php foreach($testimonials as $row): ?>
+		            <li>
+		                <div class="profil-img">
+		                    <img src="<?php echo URL::asset($row->image); ?>" alt="">
+		                </div>
+		                <div class="testimonial-content">
+		                   <?php echo $row->message; ?>
+
+		                    <div class="profile-detail">
+		                        <span class="quote-icon"><i class="fa fa-aw fa-quote-left"></i></span>
+		                        <div class="profile-content">
+		                            <span><strong><?php echo $row->name; ?></strong></span>
+		                            <span><?php echo $row->designation; ?></span>
+		                        </div>
+		                    </div>
+		                </div>
+		            </li>
+		            <?php endforeach; ?>
+		       <?php endif; ?>
+        	</ul>
+    </div>
+</div>
+<!-- END OF TESTIMMONIAL SLIDER -->
+<?php $__env->stopSection(); ?>
